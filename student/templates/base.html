@@ -1,0 +1,60 @@
+<html lang="en">
+	<head>
+{% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel = "stylesheet" type ="text/css" href =" {% static 'student/style.css' %}" />
+<link rel = "stylesheet" type ="text/css" href =" {% static 'student/base.css' %}" />
+<meta charset="utf-8">
+<title>{% block title %}Attendance Portal{% endblock %}</title>
+
+
+		<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+			<!--<div class="navbar-header">
+				<a class= " navbar-brand" href = "{% url 'home'%}">Attendace Portal</a>
+			</div>-->
+			<ul class="nav navbar-nav">
+				<li class=""><a href="/"><span class="glyphicon glyphicon-home"></span><b>&nbsp;&nbsp;Home</b></a></li>
+				<li class="active"><a href="{% url 'home' %}"><span class="glyphicon glyphicon-user"></span><b>&nbsp;&nbsp; Student</b></a></li>
+				<!--<li class=""><a href="{% url 'home' %}"><span class="glyphicon glyphicon-user" ></span><b>&nbsp;&nbsp; Student</b></a></li>-->
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+			{% if user.is_authenticated %}
+				<li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-off"></span><b>&nbsp;&nbsp; Logout</b></a></li>
+			{% endif %}
+			</ul>
+		  </div>
+		</nav>
+
+		<style type="text/css">
+			html,
+			body {
+			  height:100%
+			}
+		</style>
+	</head>
+  <body>
+<!--<<header>
+      <center>
+	  <center><h1>Attendance Portal</h1><center>
+      {% if user.is_authenticated %}
+      <center><h4><a href="{% url 'logout' %}"><b>logout</b></a></h4></center>
+      {% else %}
+      <center><h4>
+      <button type="button" onclick="window.location.href='{% url 'login' %}' ">LOGIN</button>
+      <button type="button" onclick="window.location.href='{% url 'signup' %}' ">Register</button></h4></center>
+      {% endif %}
+      <hr>
+    </header>-->
+    <main>
+	<div class="container-fluid" style='margin-left:15px'>
+
+      {% block content %}
+      {% endblock %}
+	</div>
+	</main>
+  </body>
+</html>
