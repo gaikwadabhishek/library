@@ -5,7 +5,7 @@ from django.conf.urls import include
 from django.template import loader
 from .models import Librarian
 from django.http import Http404
-from .forms import SignUpForm
+from .forms import SignUpForm,AddBookForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
