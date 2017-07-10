@@ -6,4 +6,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^student/', include('student.urls')),
     #url(r'^librarian/', include('librarian.urls')),
+    url(r'^$', include('student.urls')),
 ]
