@@ -9,4 +9,5 @@ urlpatterns =[
 	url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
 	url(r'^logout/$', auth_views.logout, {'template_name': 'logged_out.html'}, name='logout'),
 	url(r'^signup/$', teacher_views.signup, name='signup'),
+	url(r'^signup_success/$', teacher_views.signup_success, name ='signup_success'),
 ]

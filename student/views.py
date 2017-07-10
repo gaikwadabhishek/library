@@ -14,23 +14,24 @@ from django.shortcuts import render, redirect
 def home(request):
     return render(request, 'home.html')
 
-
-
+def signup_success(request):
+    return render(request,'signup_success.html')
+    
 def signup(request):
 	if request.method == 'POST':
 		form = SignUpForm(request.POST)
 		if form.is_valid():
 			user = form.save()
-			user.refresh_from_db()  
-			user.student.student_name = form.cleaned_data.get('teacher_name')
-			user.student.student_name = form.cleaned_data.get('email')
-			user.student.student_name = form.cleaned_data.get('phone_number')
+			user.refresh_from_db()
+			user.student.student_name = form.cleaned_data.get('student_name')
+			user.student.email = form.cleaned_data.get('email')
+			user.student.phone_number = form.cleaned_data.get('phone_number')
 			user.refresh_from_db()
 			user.save()
 			raw_password = form.cleaned_data.get('password1')
 			user = authenticate(username=user.username, password=raw_password)
 			login(request, user)
-			return redirect('home')
+			return redirect('signup_success')
 	else:
 		form = SignUpForm()
 	return render(request, 'signup.html', {'form': form})
