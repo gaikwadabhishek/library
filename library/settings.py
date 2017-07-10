@@ -21,7 +21,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'student.apps.StudentConfig',
-    #'librarian.apps.LibrarianConfig',
+    'librarian.apps.LibrarianConfig',
     #'phonenumber_field',
     'django.contrib.admin',
     'django.contrib.auth',
